@@ -31,7 +31,7 @@ int main()
 
 	// Initialize
 
-	Board theBoard (7,7);
+	Board theBoard (15,15);
 
 	// Set Up
 

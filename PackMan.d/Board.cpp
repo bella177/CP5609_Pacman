@@ -1,8 +1,7 @@
-
 #include  <string>
 #include <iostream>
 #include  "BoardH.h"
-#include  "ListBoardObjectsH.h"
+#include  "VectorBoardObjectsH.h"
 
 using namespace std;
 
@@ -46,6 +45,8 @@ char game_all (p_ListBoardObjects aList)
 	 	case BLACK : return '#';
 	 	case BLUE : return 'B';
 	 	case RED : return 'R';
+		case ORANGE: return 'O';
+		case PURPLE: return 'P';
 	 	case INVISIBLE : return 'I';
 	 	case BACKGROUND : return '*';
 	}

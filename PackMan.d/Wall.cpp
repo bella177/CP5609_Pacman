@@ -3,6 +3,6 @@
 #include "WallH.h"
 
 void Wall :: touch ()
-		{
-		   set_color(color1);
-		}
+{
+	set_color(color1);
+}

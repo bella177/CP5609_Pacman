@@ -1,6 +1,5 @@
-
 EXC = VladPackManGame
-OBJS = Cookie.o VladPackManGame.o Board.o ListBoardObjects.o Player.o Wall.o
+OBJS = VladPackManGame.o Cookie.o Board.o ListBoardObjects.o Player.o Wall.o
 DBG=-g
 
 VladPackManGame : $(OBJS)

@@ -1,16 +1,16 @@
-
-
 #define ROWS 20
 #define COLUMNS 20
 
 #include <vector>
 #include  "BoardObjectH.h"
-#include  "ListBoardObjectsH.h"
+#include  "VectorBoardObjectsH.h"
 #include  "PlayerH.h"
+#include  "BombH.h"
+#include  "MonsterH.h"
 #include  "WallH.h"
 #include  "CookieH.h"
 
-typedef  ListBoardObjects* p_ListBoardObjects;
+typedef  VectorBoardObjects* p_ListBoardObjects;
 
 class Board
 {
@@ -26,35 +26,52 @@ private:
 	int player_id_x;
 	int player_id_y;
 	Player *startPlayer;
+	
 	int currentScore;
 	
 
 public:
-
+	
 	Board (int rows, int cols)
 	{
+		
+	  
 	  if ((ROWS >= rows ) && (COLUMNS >= cols)) 
-		{ setOK-true; the_rows=rows; the_cols=cols;
-                  lives=3000000; gameOn=true;
+		{      
+			setOK-true; 
+			the_rows=rows; 
+			the_cols=cols;
+            lives=3000000; 
+			gameOn=true;
 			for (int i=0;  i<rows; i++)
 			  for (int j=0;  j<cols; j++)
 			    {
-		              BoardObject* aBackground = new BoardObject(i,j);
-			      p_ListBoardObjects aList =new ListBoardObjects(aBackground);
-			      mySpace[i][j]=aList;
+		           BoardObject* aBackground = new BoardObject(i,j);
+			       p_ListBoardObjects aList =new VectorBoardObjects(aBackground);
+			       mySpace[i][j]=aList;
 			    }
 		    player_id_x =the_rows/2;
 		    player_id_y =the_cols/2;
 		    startPlayer = new Player(player_id_x,player_id_y);
-		    currentScore =0;
 
-                    (mySpace[player_id_x][player_id_y])->addOne(startPlayer);
+			Bomb *abomb = new Bomb(0, 0);
+			Monster *amonster = new Monster(0,0);
+			
+		    currentScore =0;
+			
+            (mySpace[player_id_x][player_id_y])->addOne(startPlayer);
+			(mySpace[player_id_x + 2][player_id_y + 1])->addOne(abomb);
+			(mySpace[player_id_x + 3][player_id_y + 4])->addOne(abomb);
+			(mySpace[player_id_x - 2][player_id_y - 3])->addOne(amonster);
+			(mySpace[player_id_x + 5][player_id_y + 5])->addOne(amonster);
 
 	            for	(int i=1; i<the_rows-1; i++)
-		       { Wall * aWall = new Wall (i,1);
-                         (mySpace[i][1])->addOne(aWall);
-		         aWall = new Wall (i,the_cols-2);
-                         (mySpace[i][the_cols-2])->addOne(aWall);
+		       { 
+				   Wall * aWall = new Wall (i,1);
+                  (mySpace[i][1])->addOne(aWall);
+		          
+				  aWall = new Wall (i,the_cols-2);
+                  (mySpace[i][the_cols-2])->addOne(aWall);
 			}
 
 	            for	(int i=1; i<the_rows-1; i=i+2)

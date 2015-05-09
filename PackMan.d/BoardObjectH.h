@@ -1,7 +1,7 @@
 #ifndef H_BOARD_OBJECT
 #define H_BOARD_OBJECT
-enum ObjectColours { BLACK, YELLOW, BLUE, RED, INVISIBLE, BACKGROUND};
-enum ObjectTypes { THE_BACKGROUND, A_COOKIE, A_PLAYER ,A_WALL};
+enum ObjectColours { BLACK, YELLOW, BLUE, RED, PURPLE, ORANGE, INVISIBLE, BACKGROUND};
+enum ObjectTypes { THE_BACKGROUND, A_COOKIE, A_PLAYER ,A_WALL, A_BOMB, A_MONSTER};
 
 
 class BoardObject
@@ -16,20 +16,20 @@ protected:
 	//static int count;
 public:
         BoardObject (int start_x, int start_y)
-                { x=start_x; y=start_y;
-                  currentColor=BACKGROUND; 
-		  myClass=THE_BACKGROUND;
+       { 
+		   x=start_x; y=start_y;
+           currentColor=BACKGROUND; 
+		   myClass=THE_BACKGROUND;
 		  
 		  //unique_ID=count++;
-                };
+        };
 
         //int get_ID() { return unique_ID;};
 
         int get_x() { return x;};
         int get_y() { return y;};
-	ObjectTypes get_Type() {return myClass;}
-	
 
+	    ObjectTypes get_Type() {return myClass;}
         ObjectColours get_Color() {return currentColor; }
 
         virtual void touch() {currentColor=BACKGROUND; }

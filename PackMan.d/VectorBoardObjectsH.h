@@ -9,12 +9,12 @@
 typedef BoardObject* p_BoardObject;
 
 
-class  ListBoardObjects
+class  VectorBoardObjects
 {
 	std::vector <p_BoardObject> list;
-	std::vector < p_BoardObject>::iterator internalIterator;
+	std::vector <p_BoardObject>::iterator internalIterator;
 public:
-	ListBoardObjects(p_BoardObject theFirst);
+	VectorBoardObjects(p_BoardObject theFirst);
 
 	p_BoardObject theFirst();
 	p_BoardObject theNext();
